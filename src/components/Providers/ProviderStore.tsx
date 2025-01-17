@@ -4,34 +4,43 @@ import { _metaDate } from '@/types/metaDate'
 import { useInit } from '@/hooks/useInit'
 import React from 'react'
 
-export const MetaDataContext = createContext<
-  | {
-      _metaDate: _metaDate | undefined
-      setMetaDate: React.Dispatch<React.SetStateAction<_metaDate | undefined>>
-    }
-  | undefined
->(undefined)
+export const MetaDataContext = createContext<{
+  _metaDate: _metaDate | undefined
+  setMetaDate: React.Dispatch<React.SetStateAction<_metaDate | undefined>>
+} | undefined>(undefined)
 
 export const ProviderStorage = ({ children }: { children: React.ReactNode }) => {
   const { data: initialMetaData, isLoading, isError } = useInit()
-  const [metaData, setMetaDate] = useState<_metaDate | undefined>(initialMetaData)
+  const [metaData, setMetaDate] = useState<_metaDate | undefined>(undefined)
 
   useEffect(() => {
     if (initialMetaData) {
-      setMetaDate(initialMetaData)
+      setMetaDate({
+        id_user: String(initialMetaData.id),
+        coin_hour: 0,
+        count: 0,
+        state: '1',
+      })
     }
   }, [initialMetaData])
 
+
+  const handleChange = () => {
+    console.log('state replace')
+  }
+
   if (isLoading) {
-    return <div>Loading...</div> // Индикатор загрузки
+    return <div>Loading...</div> // Loading indicator
   }
 
   if (isError) {
-    return <div>Error occurred</div> // Обработка ошибок
+    return <div>Error occurred</div> // Error handling
   }
 
   return (
-    <MetaDataContext.Provider value={{ _metaDate: metaData, setMetaDate }}>
+    <MetaDataContext.Provider
+      value={{ _metaDate: metaData, setMetaDate }}
+    >
       {children}
     </MetaDataContext.Provider>
   )

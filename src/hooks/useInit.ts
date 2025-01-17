@@ -2,12 +2,19 @@ import { useEffect, useState } from 'react'
 import { useFetchTg } from './useFetchTg'
 import { useGetUser } from './useGetUser'
 import { useCreateUser } from './useCreateUser'
+import { IUser } from '@/types/IUser'
 
-export const useInit = () => {
+interface IUseInit{
+  data:IUser|undefined,
+  isLoading:boolean,
+  isError:boolean
+}
+
+export const useInit = ():IUseInit => {
   const tgData = useFetchTg()
-  const [data, setData] = useState(undefined)
-  const [isLoading, setLoading] = useState(true)
-  const [isError, setError] = useState(false)
+  const [data, setData] = useState<IUser|undefined>(undefined)
+  const [isLoading, setLoading] = useState<boolean>(true)
+  const [isError, setError] = useState<boolean>(false)
   const {
     data: userData,
     isLoading: userLoading,
