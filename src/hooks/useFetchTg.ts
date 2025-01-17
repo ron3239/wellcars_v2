@@ -25,23 +25,3 @@ export function useFetchTg() {
 
   return data;
 }
-import { init } from '@telegram-apps/sdk';
-
-export async function useFetchTg(){
-    const [data,setData] = useState({})
-
-    useEffect( () => {
-        try{
-            const tgData = init()
-            if (!tgData) return
-            setData(tgData)
-        }catch(e){
-            console.log(e)
-        }
-
-    },[])
-
-    return data
-}
-
-
