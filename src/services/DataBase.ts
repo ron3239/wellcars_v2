@@ -1,5 +1,5 @@
 export class DataBase {
-  private id_user: string|null
+  private id_user: string | null
 
   constructor(id_user: string) {
     this.id_user = id_user
@@ -7,7 +7,8 @@ export class DataBase {
 
   async GetUser(): Promise<any | null> {
     try {
-      const response = await fetch('/src/test/user.json', {  //`/api/user/search`
+      const response = await fetch('/user/', {
+        //`/api/user/search`
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,12 +23,10 @@ export class DataBase {
       const data = await response.json()
       return data
     } catch (error) {
-      console.error( error)
+      console.error(error)
       return null
     }
   }
-
-
 
   async CreateUser(name: string): Promise<any | null> {
     try {
@@ -72,37 +71,37 @@ export class DataBase {
 
   async sendCountChange(action: 'plus' | 'minus', kol: number) {
     try {
-        const response = await fetch(`/api/user/${action}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                id_user: this.id_user,
-                kol: kol,
-            }),
-        });
-        
-        if (!response.ok) {
-            console.error(response.statusText);
-            return null;
-        }
+      const response = await fetch(`/api/user/${action}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id_user: this.id_user,
+          kol: kol,
+        }),
+      })
 
-        const data = await response.json();
-        return data;
+      if (!response.ok) {
+        console.error(response.statusText)
+        return null
+      }
+
+      const data = await response.json()
+      return data
     } catch (error) {
-        console.error( error);
-        return null;
+      console.error(error)
+      return null
     }
-}
+  }
 
-async PlusCount(kol: number) {
-    return this.sendCountChange('plus', kol);
-}
+  async PlusCount(kol: number) {
+    return this.sendCountChange('plus', kol)
+  }
 
-async MinusCount(kol: number) {
-    return this.sendCountChange('minus', kol);
-}
+  async MinusCount(kol: number) {
+    return this.sendCountChange('minus', kol)
+  }
 
   async GetListUpgrade() {
     try {
