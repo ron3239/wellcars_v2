@@ -1,8 +1,6 @@
 export interface Upgrade {
-    id:
-    name         String 
-    description  String
-    img          String
-    levels       UpgradeLevelCost[] 
-    userUpgrades UserUpgrade[]     
-  }
+  id: number
+  name: string
+  description: string
+  img: string
+}

@@ -1,19 +1,15 @@
-export class DataBase {
-  private id_user: string | null
 
-  constructor(id_user: string) {
-    this.id_user = id_user
-  }
 
-  async GetUser(): Promise<any | null> {
+export const DataBase={
+
+  async GetUser(id_user:number): Promise<any | null> {
     try {
-      const response = await fetch('/user/', {
+      const response = await fetch(`/user/${id_user}`, {
         //`/api/user/search`
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ id_user: this.id_user }),
       })
 
       if (!response.ok) {
@@ -26,9 +22,9 @@ export class DataBase {
       console.error(error)
       return null
     }
-  }
+  },
 
-  async CreateUser(name: string): Promise<any | null> {
+  async CreateUser(name: string,id_user:number): Promise<any | null> {
     try {
       const response = await fetch(`/api/user/create`, {
         method: 'POST',
@@ -36,7 +32,7 @@ export class DataBase {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id_user: this.id_user,
+          id_user: id_user,
           username: name,
           last_update_time: new Date(),
         }),
@@ -50,7 +46,7 @@ export class DataBase {
       console.log(e)
       return null
     }
-  }
+  },
 
   async UpdateDate(id_user: string) {
     try {
@@ -60,16 +56,16 @@ export class DataBase {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id_user: this.id_user,
+          id_user:id_user,
           DateTime: new Date(),
         }),
       })
     } catch (e) {
       console.error(e)
     }
-  }
+  },
 
-  async sendCountChange(action: 'plus' | 'minus', kol: number) {
+  async sendCountChange(id_user:number,action: 'plus' | 'minus', kol: number) {
     try {
       const response = await fetch(`/api/user/${action}`, {
         method: 'POST',
@@ -77,7 +73,7 @@ export class DataBase {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id_user: this.id_user,
+          id_user: id_user,
           kol: kol,
         }),
       })
@@ -93,15 +89,15 @@ export class DataBase {
       console.error(error)
       return null
     }
-  }
+  },
 
-  async PlusCount(kol: number) {
-    return this.sendCountChange('plus', kol)
-  }
+  async PlusCount(id_user:number,kol: number) {
+    return this.sendCountChange(id_user,'plus', kol)
+  },
 
-  async MinusCount(kol: number) {
-    return this.sendCountChange('minus', kol)
-  }
+  async MinusCount(id_user:number,kol: number) {
+    return this.sendCountChange(id_user,'minus', kol)
+  },
 
   async GetListUpgrade() {
     try {
@@ -114,9 +110,9 @@ export class DataBase {
     } catch (e) {
       console.log(e)
     }
-  }
+  },
 
-  async GetListUpgradeUser() {
+  async GetListUpgradeUser(id_user:number) {
     try {
       const response = await fetch('api/upgrade/user_upgrade', {
         method: 'POST',
@@ -124,7 +120,7 @@ export class DataBase {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id_user: this.id_user,
+          id_user:id_user,
         }),
       })
 
@@ -138,7 +134,7 @@ export class DataBase {
     } catch (error) {
       console.error('Error fetching upgrades:', error)
     }
-  }
+  },
 
   async SearchUpgradeLvl(upgradeId: number, level: number) {
     try {
@@ -163,9 +159,9 @@ export class DataBase {
       console.error('Fetch error:', error)
       return null
     }
-  }
+  },
 
-  async BuyUpgrade(list: any) {
+  async BuyUpgrade(list: any,id_user:number) {
     //лист улучшения
 
     const url = list.level > 1 ? 'api/upgrade/update' : 'api/upgrade/user_upgrade_create'
@@ -177,12 +173,12 @@ export class DataBase {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id_user: this.id_user,
+          id_user: id_user,
           upgradeId: list.upgradeId,
         }),
       })
 
-      this.GetListUpgradeUser()
+      GetListUpgradeUser()
 
       const response1 = await fetch('api/user/update_coin_hour', {
         //Прибавление афк фарма
@@ -191,7 +187,7 @@ export class DataBase {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id_user: this.id_user,
+          id_user: id_user,
           coin_hour: list.coinPerHour,
         }),
       })
@@ -200,3 +196,7 @@ export class DataBase {
     }
   }
 }
+function GetListUpgradeUser() {
+  throw new Error("Function not implemented.")
+}
+

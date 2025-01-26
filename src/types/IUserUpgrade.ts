@@ -4,6 +4,4 @@ type IUserUpgrade = {
   upgradeId: number
   currentLevel: number
   purchasedAt: Date
-  upgrade: Upgrade
-  user: IUser
 }
