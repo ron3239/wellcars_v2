@@ -4,7 +4,7 @@ export function useGetUser(id_user: string) {
   const id_user_int = parseInt(id_user)
   const { data, isLoading, isError } = useQuery({
     queryKey: ['user'],
-    queryFn: () => DataBase.GetUser(id_user_int),
+    queryFn: () => DataBase.GetUser(id_user),
   })
   return { data, isLoading, isError }
 }

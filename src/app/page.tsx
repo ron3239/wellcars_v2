@@ -1,7 +1,8 @@
 'use client'
 import { MetaDataContext } from '@/components/Providers/ProviderStore'
-import { useContext, useEffect } from 'react'
-import { Home } from '@/layout/index'
+import { useContext, } from 'react'
+import { Home, Invite, Upgrade, Wallet } from '@/components/screen/index'
+import { Loading } from '@/components'
 
 export default function Main() {
   const storageContext = useContext(MetaDataContext)
@@ -11,16 +12,17 @@ export default function Main() {
   }
   const { _metaDate, setMetaDate } = storageContext
 
-  useEffect(()=>{
-    setMetaDate(undefined)
-  },[])
 
-  if (_metaDate?.id_user === null) {
-    switch (_metaDate.state) {
+    switch (_metaDate?.state) {
       case '1':
         return <Home/>
+      case '2':
+        return <Upgrade/>
+      case '3':
+        return <Invite/>
+      case '4':
+        return <Wallet/>
+        default: return <Loading/>
     }
-  } else {
-    ;<div>Loading...</div>
-  }
+
 }

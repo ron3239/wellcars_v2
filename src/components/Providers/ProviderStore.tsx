@@ -3,34 +3,36 @@ import { createContext, useEffect, useState } from 'react'
 import { _metaDate } from '@/types/metaDate'
 import { useInit } from '@/hooks/useInit'
 import React from 'react'
+import { Loading } from '..'
 
-export const MetaDataContext = createContext<{
-  _metaDate: _metaDate | undefined
-  setMetaDate: React.Dispatch<React.SetStateAction<_metaDate | undefined>>
-} | undefined>(undefined)
+export const MetaDataContext = createContext<
+  | {
+      _metaDate: _metaDate | undefined
+      setMetaDate: React.Dispatch<React.SetStateAction<_metaDate | undefined>>
+    }
+  | undefined
+>(undefined)
 
 export const ProviderStorage = ({ children }: { children: React.ReactNode }) => {
   const { data: initialMetaData, isLoading, isError } = useInit()
   const [metaData, setMetaDate] = useState<_metaDate | undefined>(undefined)
 
   useEffect(() => {
+    
     if (initialMetaData) {
+      console.log(initialMetaData)
       setMetaDate({
-        id_user: String(initialMetaData.id),
-        coin_hour: 0,
-        count: 0,
+        id_user: String(initialMetaData.id_user),
+        count: initialMetaData.coin,
+        coin_hour: initialMetaData.coin_hour,
         state: '1',
       })
     }
   }, [initialMetaData])
 
 
-  const handleChange = () => {
-    console.log('state replace')
-  }
-
   if (isLoading) {
-    return <div>Loading...</div> // Loading indicator
+    return <Loading/>
   }
 
   if (isError) {
@@ -38,9 +40,7 @@ export const ProviderStorage = ({ children }: { children: React.ReactNode }) => 
   }
 
   return (
-    <MetaDataContext.Provider
-      value={{ _metaDate: metaData, setMetaDate }}
-    >
+    <MetaDataContext.Provider value={{ _metaDate: metaData, setMetaDate }}>
       {children}
     </MetaDataContext.Provider>
   )
