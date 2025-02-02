@@ -13,7 +13,7 @@ export const Home:FC = () => {
 
   return (
     <div>
-      <Header/>
+      <Header title={_metaDate?.name}/>
       
 
       <h3 className='text-white'>{_metaDate?.id_user}</h3>

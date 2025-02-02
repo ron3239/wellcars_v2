@@ -23,10 +23,12 @@ export const ProviderStorage = ({ children }: { children: React.ReactNode }) => 
       console.log(initialMetaData)
       setMetaDate({
         id_user: String(initialMetaData.id_user),
+        name:initialMetaData.username,
         count: initialMetaData.coin,
         coin_hour: initialMetaData.coin_hour,
         state: '1',
       })
+      
     }
   }, [initialMetaData])
 

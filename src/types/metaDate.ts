@@ -1,5 +1,7 @@
 export interface _metaDate {
+        
         id_user: string;
+        name: string;
         coin_hour: number;
         count: number;
         state: string;
