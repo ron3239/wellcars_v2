@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #000000;
-  --foreground: #232526;
-  --background2: #242527;
+  --background: #1A0B2F;
+  --foreground: #ededed;
   --shadow: #3f3071;
 }
 
@@ -19,12 +18,10 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Roboto Condensed", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+  padding: 5px;
 }
 
 h1{
   @apply text-4xl text-white
 }
+

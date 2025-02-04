@@ -1,6 +1,7 @@
 import { MetaDataContext } from '@/components/Providers/ProviderStore'
 import React, { FC, useContext } from 'react'
-import { Header } from '../layout/header/Header'
+import { Header, } from '../layout/header/Header'
+import style from './style.module.scss'
 
 export const Home:FC = () => {
   const storageContext = useContext(MetaDataContext)
@@ -13,10 +14,14 @@ export const Home:FC = () => {
 
   return (
     <div>
-      <Header title={_metaDate?.name}/>
+      <Header />
       
+      <div className={`${style.main}`}>
+        <h1>Home</h1>
+      </div>
 
-      <h3 className='text-white'>{_metaDate?.id_user}</h3>
+      Foter
+      
     
     </div>
   )

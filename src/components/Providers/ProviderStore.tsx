@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from 'react'
 import { _metaDate } from '@/types/metaDate'
 import { useInit } from '@/hooks/useInit'
 import React from 'react'
-import { Loading } from '..'
+import { Loading } from '@/components/Loading/Loading'
 
 export const MetaDataContext = createContext<
   | {

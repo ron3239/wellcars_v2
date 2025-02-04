@@ -1,19 +1,14 @@
 import React from 'react'
 import style from './style.module.scss'
 
-type Props = {
-  title: string|undefined
-}
 
-export const Header = ({title}:  Props) => {
+
+export const Header = () => {
   return (
     <div className={style.header}>
 
-    <h1>{title}</h1>
+    <h1>WellCars</h1>
 
-    
-
-    
 
     </div>
   )

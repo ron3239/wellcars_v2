@@ -1,6 +1,7 @@
 .header{
 
-    @apply flex p-3 
-
-
+    @apply flex p-3 place-content-center;
+    h1{
+        font-size: 60px;
+    }
 }
