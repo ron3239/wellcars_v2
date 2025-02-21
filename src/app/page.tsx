@@ -1,7 +1,7 @@
 'use client'
 import { MetaDataContext } from '@/components/Providers/ProviderStore'
 import { useContext, } from 'react'
-import { Home, Invite, Upgrade, Wallet } from '@/components/screen/index'
+import { Home, Invite, Upgrade, Wallet } from '@/components/layout/index'
 import { Loading } from '@/components'
 
 export default function Main() {
@@ -14,13 +14,13 @@ export default function Main() {
 
 
     switch (_metaDate?.state) {
-      case '1':
+      case '0':
         return <Home/>
-      case '2':
+      case '1':
         return <Upgrade/>
-      case '3':
+      case '2':
         return <Invite/>
-      case '4':
+      case '3':
         return <Wallet/>
         default: return <Loading/>
     }

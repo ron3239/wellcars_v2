@@ -27,7 +27,7 @@ export const useInit = (): IUseInit => {
     
 
 
-     if (tgData?.user?.id) {
+    //  if (tgData?.user?.id) {
       //  if (userLoading) {
       //    setLoading(true)
       //    return
@@ -47,9 +47,9 @@ export const useInit = (): IUseInit => {
          setError(false)
          
        }
-     } else {
-       setLoading(false)
-     }
+    //  } else {
+    //    setLoading(false)
+    //  }
      console.log('use init')
      console.log(data,'data')
    }

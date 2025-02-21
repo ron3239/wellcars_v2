@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --background: #1A0B2F;
@@ -21,7 +19,4 @@ body {
   padding: 5px;
 }
 
-h1{
-  @apply text-4xl text-white
-}
 
