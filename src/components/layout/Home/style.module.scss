@@ -1,11 +1,22 @@
 .main{
 
     display: flex;
+    flex-direction: column;
     flex: 1;
-    height: 100%;
+    justify-content: center;
+
+
 
     background-color: rgba($color: #6B696C, $alpha: 10%);
     
 
 
+}
+
+.header{
+    width: 100%;
+}
+.energy_claim{
+    display: flex;
+    justify-content: space-around;
 }
