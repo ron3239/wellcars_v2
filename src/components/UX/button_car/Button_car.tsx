@@ -5,14 +5,14 @@ import style from './style.module.scss'
 export function Button_car() {
   return (
     <>
-      <div className='w-auto h-auto'>
-        <Image src='/bg-button.png' alt='asd' width={333} height={330} />
+      <div className='w-[348] h-[348] flex justify-center items-center'>
+        <Image src='/bg-button.png' alt='' width={348} height={348} className={style.button1} />
         <Image
           src={`/ux/button_car/pngwing.com_${1}.png`}
-          width={333}
-          height={330}
+          width={348}
+          height={348}
           alt='as'
-          className={style.button}
+          className={style.button2}
         />
       </div>
     </>

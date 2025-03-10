@@ -1,11 +1,24 @@
-.button{
+.button1{
+    position: relative;
+    display: block;
+    
+    left: 50%;
+    top: 0%;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    
+}
 
-    position: absolute;
-    left: 0;
-    top: -50%;
+.button2{
+
+    position: relative;
+    left: -42%;
+    top: 0;
     right: 0;
     bottom: 0;
 
+    
     display: block;
     margin: auto;
     z-index: 2;

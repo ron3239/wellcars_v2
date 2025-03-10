@@ -33,8 +33,8 @@ export const Button = ({ idComponent, _metaDate, setMetaDate, children }: Props)
           checked={_metaDate.state === idComponent}
           onChange={() => handleChange()}
         />
-        <Image src='/ux/button_bg.png'  alt="ad"  objectFit='contain' width={96} height={90} className={style.img} />
-        {children}
+        <Image src='/ux/button_bg.png'  alt=""  objectFit='contain' width={96} height={90} className={style.img} />
+        {children }
         
         
 

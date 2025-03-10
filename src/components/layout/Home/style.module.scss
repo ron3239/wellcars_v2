@@ -2,8 +2,11 @@
 
     display: flex;
     flex-direction: column;
-    flex: 1;
+    height: auto;
+    min-height: 65%;
     justify-content: center;
+
+    align-items: center;
 
 
 
@@ -18,5 +21,14 @@
 }
 .energy_claim{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    position: relative;
+    bottom: -22px;
+    width: 100%;
+}
+
+.hr {
+    margin-top: 17px;
+    margin-bottom: 17px;
+    color: #7651DB;
 }

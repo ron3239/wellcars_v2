@@ -1,0 +1,22 @@
+.text{
+    font-size: 40;
+    color: #FFCF00;
+    stroke: #646464;
+    -webkit-text-stroke: 3px black;
+    
+
+
+}
+
+.image{
+    filter: contrast(1);
+    color: #FFCF00;
+
+    width: 50px;
+    height: 30px;
+
+}
+.container{
+    display: flex;
+    align-items: center;
+}
