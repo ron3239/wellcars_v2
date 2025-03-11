@@ -12,7 +12,7 @@ export const useStorage = ():_metaDate => {
         return null
 
       }
-      const { _metaDate, setMetaDate } = storageContext
+      const { _metaDate } = storageContext
 
       return _metaDate
 

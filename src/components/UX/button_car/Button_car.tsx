@@ -5,7 +5,7 @@ import { DataBase } from '@/services/DataBase'  // @ts-ignore
 import { useStorage } from '@/hooks/useStorage'
 
 export function Button_car() {
-  const _metaDate = useStorage()
+  const _metaDate = useStorage()// @ts-ignore
   return (
     <>
       <div className='w-[348] h-[348] flex justify-center items-center'>

@@ -32,21 +32,21 @@ export const useInit = (): IUseInit => {
       //    setLoading(true)
       //    return
       //  }
-       if (userError || userData === null) {
-         const {
-           data: newUserData,
-           isLoading: createLoading,
-           isError: createError,
-         } = useCreateUser(tgData.user.id, tgData.user.name)
-         setData(newUserData)
-         setLoading(createLoading)
-         setError(createError)
-       } else {
-         setData(userData)
-         setLoading(false)
-         setError(false)
+      //  if (userError || userData === null) {
+      //    const {
+      //      data: newUserData,
+      //      isLoading: createLoading,
+      //      isError: createError,
+      //    } = useCreateUser(tgData.user.id, tgData.user.name)
+      //    setData(newUserData)
+      //    setLoading(createLoading)
+      //    setError(createError)
+      //  } else {
+      //    setData(userData)
+      //    setLoading(false)
+      //    setError(false)
          
-       }
+      //  }
     //  } else {
     //    setLoading(false)
     //  }
