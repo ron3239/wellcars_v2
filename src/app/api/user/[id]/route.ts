@@ -33,8 +33,8 @@ export async function GET(req: Request, res: NextResponse) {
 }
 
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
- const { id } = await params;
+export async function POST(req: Request, res: NextResponse) {
+ const { id } = await res.params;
  const id_int = BigInt(id);
 
  try {
