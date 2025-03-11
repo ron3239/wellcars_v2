@@ -3,7 +3,7 @@ import style from './style.module.scss'
 import { SlEnergy } from "react-icons/sl";
 
 export function Energy() {
-  const [energy, setEnergy] = React.useState(100)
+  const [energy] = React.useState(100)
 
   return (
     <div className={style.container} >

@@ -1,5 +1,5 @@
 
-import React, { FC, useContext } from 'react'
+import React, { FC } from 'react'
 import { Header, } from '../../screen/header/Header'
 import style from './style.module.scss'
 import { Button_car, Energy, Footer,Button_claim } from '../..'
