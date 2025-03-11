@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 export function useFetchTg() {
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<unknown >(null);
 
   useEffect(() => {
     // const fetchData = async () => {

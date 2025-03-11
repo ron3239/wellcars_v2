@@ -1,5 +1,7 @@
+import { IUpgradeLevelCost } from "@/types/UpgradeLevelCost"
+
 export const DataBase = {
-  async GetUser(id_user: string): Promise<any | null> {
+  async GetUser(id_user: string): Promise<unknown  | null> {
     try {
       const response = await fetch(`api/user/${id_user}`, {
         method: 'GET',
@@ -19,7 +21,7 @@ export const DataBase = {
     }
   },
  
-  async CreateUser(name: string, id_user: string): Promise<any | null> {
+  async CreateUser(name: string, id_user: string): Promise<unknown  | null> {
     try {
       const response = await fetch(`/api/user/${id_user}`, {
         method: 'POST',
@@ -154,7 +156,7 @@ export const DataBase = {
     }
   },
  
-  async BuyUpgrade(list: any, id_user: string) {
+  async BuyUpgrade(list: IUpgradeLevelCost , id_user: string) {
     const url = list.level > 1 ? 'api/upgrade/update' : 'api/upgrade/user_upgrade_create'
  
     try {

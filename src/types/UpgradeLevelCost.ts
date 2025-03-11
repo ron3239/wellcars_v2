@@ -1,4 +1,4 @@
-export interface IUpgradeLevelCost {
+export type IUpgradeLevelCost= {
   id: number
   upgradeId: number
   level: number

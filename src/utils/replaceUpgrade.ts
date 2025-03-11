@@ -1,8 +1,10 @@
+import { IUpgradeLevelCost } from "@/types/UpgradeLevelCost";
+
 export const replaceUpgrades = async (
-    list1: any[],
-    list2: any[],
-    searchUpgradeLvl: (id: number, level: number) => Promise<any>
-  ): Promise<any[]> => {
+    list1: IUpgradeLevelCost[],
+    list2: IUserUpgrade[],
+    searchUpgradeLvl: (id: number, level: number) => Promise<IUpgradeLevelCost>
+  ): Promise<IUpgradeLevelCost[]> => {
     const promises = list1.map(async (item1) => {
       const foundItem = list2.find(item2 => item1.id === item2.upgradeId);
       const upgradeLvl = foundItem
@@ -14,7 +16,7 @@ export const replaceUpgrades = async (
     return Promise.all(promises);
   };
 
-export const connectList = (list1:any[], list2:any[]) => {
+export const connectList = (list1:IUpgradeLevelCost[], list2:IUpgradeLevelCost[]) => {
     return list1.map((obj,id)=>({
         ...obj,
         ...list2[id]
