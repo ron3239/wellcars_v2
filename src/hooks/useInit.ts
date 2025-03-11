@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useFetchTg } from './useFetchTg'
 import { useGetUser } from './useGetUser'
-import { useCreateUser } from './useCreateUser'
+import { CreateUser } from './useCreateUser'
 import { IUser } from '@/types/IUser'
 
 interface IUseInit {
@@ -37,7 +37,7 @@ export const useInit = (): IUseInit => {
            data: newUserData,
            isLoading: createLoading,
            isError: createError,
-         } = useCreateUser(tgData.user.id, tgData.user.name)
+         } = CreateUser(tgData.user.id, tgData.user.name)
          setData(newUserData)
          setLoading(createLoading)
          setError(createError)

@@ -1,6 +1,5 @@
 import { MetaDataContext } from '@/components/Providers/ProviderStore'
 import { Button_Icon } from '@/components/UX'
-import { _metaDate } from '@/types/metaDate'
 import React from 'react'
 import { useContext } from 'react'
 import { IoHome, IoChevronUpCircle, IoPersonAdd, IoWalletSharp } from 'react-icons/io5'

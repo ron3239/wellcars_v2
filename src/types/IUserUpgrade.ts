@@ -1,4 +1,4 @@
-type IUserUpgrade = {
+type IUserUpgrade = { //@ts-ignore
   id: number
   userId: bigint
   upgradeId: number
