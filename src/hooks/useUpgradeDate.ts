@@ -14,7 +14,6 @@ export function useUpgradeData(
     const updateData = async () => {
       const arr = await replaceUpgrades(list_upgrade, userBought, searchUpgradeLvl)
       setCost(arr)
-      type IArr = typeof arr
       setData(connectList(list_upgrade, arr)) // Ensure _newData is defined and imported if necessary
     }
 

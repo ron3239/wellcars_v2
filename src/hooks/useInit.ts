@@ -12,13 +12,13 @@ interface IUseInit {
 
 export const useInit = (): IUseInit => {
  const tgData = useFetchTg()
- const [data, setData] = useState<IUser | undefined>(undefined)
- const [isLoading, setLoading] = useState<boolean>(true)
- const [isError, setError] = useState<boolean>(false)
+ const [data] = useState<IUser | undefined>(undefined)
+ const [isLoading] = useState<boolean>(true)
+ const [isError] = useState<boolean>(false)
  const {
    data: userData,
-   isLoading: userLoading,
-   isError: userError,
+  //  isLoading: userLoading,
+  //  isError: userError,
  } = useGetUser('5064231449')  //gData?.user?.id
 
  useEffect(() => {

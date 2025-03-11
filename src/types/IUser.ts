@@ -1,4 +1,4 @@
-export interface IUser {
+export type IUser= {
   id_user: bigint
   username: string
   coin: number
