@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import style from './style.module.scss'
-import { DataBase } from '@/services/DataBase'
+import { DataBase } from '@/services/DataBase'  // @ts-ignore
 import { useStorage } from '@/hooks/useStorage'
 
 export function Button_car() {

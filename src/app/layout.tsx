@@ -1,7 +1,6 @@
-import type { Metadata } from 'next'
 import './globals.css'
 import { ProviderQuery, ProviderStorage } from '@/components'
-import type { _metaDate } from '@/types/metaDate'
+import { Metadata } from 'next'
 import {Jersey_20} from 'next/font/google'
 
 export const metadata: Metadata = {

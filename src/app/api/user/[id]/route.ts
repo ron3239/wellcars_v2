@@ -1,4 +1,3 @@
-import { IUser } from '@/types/IUser';
 import { bigintToString } from '@/utils/bigIntToString';
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
