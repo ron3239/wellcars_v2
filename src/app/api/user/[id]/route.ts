@@ -4,14 +4,16 @@ import { NextResponse } from 'next/server';
 
 const prisma = new PrismaClient();
 
-/**
-* Обрабатывает GET запрос для получения пользователя по ID.
-* @param req - Запрос.
-* @param params - Параметры запроса, содержащие ID пользователя.
-* @returns Объект пользователя или null, если пользователь не найден.
-*/
-export async function GET(req: Request, { params }: { params: { id: string } }) {
- const { id } = await params;
+
+declare module "next/server" {
+  interface NextResponse {
+    params: { id: string }; // Add your custom property here
+  }
+}
+
+
+export async function GET(req: Request, res: NextResponse) {
+ const { id } = await res.params;
  const id_int = BigInt(id);
 
  console.log(`Получен id: ${id}`);
@@ -30,12 +32,7 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
  return NextResponse.json(transformedUsers);
 }
 
-/**
-* Обрабатывает POST запрос для создания нового пользователя.
-* @param req - Запрос.
-* @param params - Параметры запроса, содержащие ID пользователя.
-* @returns Объект созданного пользователя или null, если пользователь не создан.
-*/
+
 export async function POST(req: Request, { params }: { params: { id: string } }) {
  const { id } = await params;
  const id_int = BigInt(id);
