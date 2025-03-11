@@ -12,13 +12,13 @@ interface IUseInit {
 
 export const useInit = (): IUseInit => {
  const tgData = useFetchTg()
- const [data] = useState<IUser | undefined>(undefined)
- const [isLoading] = useState<boolean>(true)
- const [isError] = useState<boolean>(false)
+ const [data, setData] = useState<IUser | undefined>(undefined)
+ const [isLoading, setLoading] = useState<boolean>(true)
+ const [isError, setError] = useState<boolean>(false)
  const {
    data: userData,
   //  isLoading: userLoading,
-  //  isError: userError,
+   isError: userError,
  } = useGetUser('5064231449')  //gData?.user?.id
 
  useEffect(() => {
@@ -32,21 +32,21 @@ export const useInit = (): IUseInit => {
       //    setLoading(true)
       //    return
       //  }
-      //  if (userError || userData === null) {
-      //    const {
-      //      data: newUserData,
-      //      isLoading: createLoading,
-      //      isError: createError,
-      //    } = useCreateUser(tgData.user.id, tgData.user.name)
-      //    setData(newUserData)
-      //    setLoading(createLoading)
-      //    setError(createError)
-      //  } else {
-      //    setData(userData)
-      //    setLoading(false)
-      //    setError(false)
+       if (userError || userData === null) {
+         const {
+           data: newUserData,
+           isLoading: createLoading,
+           isError: createError,
+         } = useCreateUser(tgData.user.id, tgData.user.name)
+         setData(newUserData)
+         setLoading(createLoading)
+         setError(createError)
+       } else {
+         setData(userData)
+         setLoading(false)
+         setError(false)
          
-      //  }
+       }
     //  } else {
     //    setLoading(false)
     //  }
