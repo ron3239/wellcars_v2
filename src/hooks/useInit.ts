@@ -57,7 +57,7 @@ export const useInit = (): IUseInit => {
    init()
 
    
- }, [tgData,userData])
+ }, [tgData,userData,data,userError])
 
  return { data, isLoading, isError }
 }
